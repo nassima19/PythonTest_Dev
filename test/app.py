@@ -1,3 +1,25 @@
 # content of test_sample.py
-def inc(x):
-    return x + 1
+def add(x,y):
+    return x + y
+
+
+def sus(x,y):
+    return x - y
+
+
+def multiplication(x,y):
+    return x*y
+
+
+def fact(num):
+    factorial = 1
+
+    # check if the number is negative, positive or zero
+    if num < 0:
+        print("Sorry, factorial does not exist for negative numbers")
+    elif num == 0:
+        print("The factorial of 0 is 1")
+    else:
+        for i in range(1,num + 1):
+            factorial = factorial*i
+        return factorial
