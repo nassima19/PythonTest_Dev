@@ -1,10 +1,20 @@
-name: Python applicationon
+name: Python application
+
+on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]permissions:
-  contents: readjobs:
-  build:    runs-on: windows-latest    steps:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.9.13
       uses: actions/setup-python@v3
@@ -14,7 +24,7 @@ name: Python applicationon
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
-        pip freeze > requirements.txt
+        pip3 freeze > requirements.txt
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -25,5 +35,5 @@ name: Python applicationon
     - name: Test with pytest
       run: |
         pip install pytest
-        set PYTHONPATH=test
+        set PYTHONPATH=
         pytest
