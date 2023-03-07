@@ -1,4 +1,4 @@
-name: Python applicationon:
+name: Python applicationon
   push:
     branches: [ "main" ]
   pull_request:
