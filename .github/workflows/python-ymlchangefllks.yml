@@ -22,6 +22,7 @@ jobs:
         python-version: 3.9.13
     - name: Install dependencies
       run: |
+        pip install pytest
         python -m pip install --upgrade pip
         pip3 freeze > requirements.txt
     - name: Lint with flake8
@@ -32,4 +33,5 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
+        set PYTHONPATH=C:\Users\HP\Desktop\TestP\pythonTest\test.py
         pytest
