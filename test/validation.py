@@ -1,4 +1,4 @@
-"""A dummy docstring."""
+"""A dumy docstring."""
 from requests import get
 
 
