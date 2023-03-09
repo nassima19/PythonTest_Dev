@@ -6,6 +6,7 @@ jobs:
   tests:
     runs-on: ${{ matrix.os }}
     env: 
+     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}  
     strategy:
       matrix:
         os: [windows-latest]
@@ -27,11 +28,8 @@ jobs:
         run: |
           pip install pytest
           python -m pytest
-          steps:
-              - name: Send GitHub Action trigger data to Slack workflow
-                id: slack
-                uses: slackapi/slack-github-action@v1.23.0
-             env:
-               SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}  
-  
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+             
         
