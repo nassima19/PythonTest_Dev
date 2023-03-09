@@ -39,6 +39,4 @@ jobs:
         if: always()
       - name: Analysing the code with pylint
         run: |
-         OUTPUT=$(pylint ./test --exit-zero)
-         #OUTPUT=$(shell command or script to extract the part your want)
-         echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
+          pylint $(git ls-files '*.py')
