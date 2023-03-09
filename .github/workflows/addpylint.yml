@@ -32,9 +32,13 @@ jobs:
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+          text: 'CICD ongoing...'
           steps: ${{ toJson(steps) }}
           channel: '#devops'
         if: always()
       - name: Analysing the code with pylint
         run: |
-         find . -name '*.py' -exec pylint {} \;
+         OUTPUT=$(pylint ./test --exit-zero)
+         #OUTPUT=$(shell command or script to extract the part your want)
+         echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
