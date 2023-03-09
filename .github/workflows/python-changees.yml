@@ -30,6 +30,6 @@ jobs:
           python -m pytest
       - name: Send GitHub Action trigger data to Slack workflow
         id: slack
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: nassima19/PythonTest_Dev@v1.23.0
              
         
