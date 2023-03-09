@@ -28,6 +28,7 @@ jobs:
         run: |
           pip install pytest
           python -m pytest
+          pip install pylint
       - name: Send GitHub Action trigger data to Slack workflow
         uses: act10ns/slack@v1
         with:
@@ -35,5 +36,8 @@ jobs:
           steps: ${{ toJson(steps) }}
           channel: '#devops'
         if: always()
+      - name: Analysing the code with pylint
+        run: |
+         find . -name '*.py' -exec pylint {} \;
              
         
