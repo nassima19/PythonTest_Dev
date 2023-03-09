@@ -1,5 +1,4 @@
 """A dumy docstring."""
-import requests 
 from requests import get
 
 
