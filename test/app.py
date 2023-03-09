@@ -1,20 +1,28 @@
-# content of test_sample.py
-def add(x,y):
-    return x + y
+"""Module providingFunction printing python version."""
+
+def add(x_values,y_values):
+    """A dummy docstring.""" 
+    z_values=x_values + y_values
+    return z_values
 
 
-def sus(x,y):
-    return x - y
+def sus(x_values,y_values):
+    """A dummy docstring."""
+    z_values=x_values - y_values
+    return z_values
 
-
-def multiplication(x,y):
-    return x*y
+def multiplication(x_values,y_values):
+    """A dummy docstring."""
+    z_values=x_values*y_values
+    return z_values
 
 
 def fact(num):
+    """A dummy docstring."""
     factorial = 1
-
     # check if the number is negative, positive or zero
+
+
     if num < 0:
         print("Sorry, factorial does not exist for negative numbers")
     elif num == 0:
@@ -23,3 +31,4 @@ def fact(num):
         for i in range(1,num + 1):
             factorial = factorial*i
         return factorial
+    return None

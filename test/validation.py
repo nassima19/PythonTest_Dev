@@ -1,19 +1,21 @@
+"""A dummy docstring."""
 from requests import get
 
 
 def get_error_message(error_type):
+    """A dummy docstring."""
     if error_type == 404:
         return 'red'
-    elif error_type == 403:
+    if error_type == 403:
         return 'orange'
-    elif error_type == 401:
+    if error_type == 401:
         return 'yellow'
-    else:
-        return 'blue'
+    return 'blue'
 
 
 def main():
-    res = get('https://api.github.com/events')
+    """A dummy docstring."""
+    res = get('https://api.github.com/events', timeout=10)
     status = res.status_code
     if res.ok:
         print(f'{status}')
