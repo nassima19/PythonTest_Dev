@@ -3,7 +3,7 @@ from requests import get
 
 
 def get_error_message(error_type):
-    """A dummy docstring."""
+    """A dummy docstrig."""
     if error_type == 404:
         return 'red'
     if error_type == 403:
