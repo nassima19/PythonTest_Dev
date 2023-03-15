@@ -5,6 +5,8 @@ on: push
 jobs:
   tests:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+
     env: 
      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}  
     strategy:
@@ -28,7 +30,10 @@ jobs:
           pip install pytest
           python -m pytest
           pip install pylint
-      - name: Send GitHub Action trigger data to Slack workflow
+      - name: Analysing the code with pylint
+        run: |
+          pylint $(git ls-files '*.py')
+           - name: Send GitHub Action trigger data to Slack workflow
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
@@ -37,6 +42,3 @@ jobs:
           steps: ${{ toJson(steps) }}
           channel: '#devops'
         if: always()
-      - name: Analysing the code with pylint
-        run: |
-          pylint $(git ls-files '*.py')
