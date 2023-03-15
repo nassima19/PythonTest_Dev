@@ -33,7 +33,7 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           pylint $(git ls-files '*.py')
-           - name: Send GitHub Action trigger data to Slack workflow
+      - name: Send GitHub Action trigger data to Slack workflow
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
